@@ -33,7 +33,7 @@ export default function Index() {
   const [showReset, setShowReset] = useState(false);
 
   const categoryCards = [
-  { label: "Fish", progress: fishProgress, tab: "fish" as TabId, icon: <Fish className="w-5 h-5 text-primary" /> },
+  { label: "Fish", progress: fishProgress, tab: "fish" as TabId, icon: <Fish className="w-5 h-5 border-primary text-primary-foreground bg-primary-foreground" /> },
   { label: "Pursuits", progress: pursuitProgress, tab: "pursuits" as TabId, icon: <ClipboardList className="w-5 h-5 text-primary" /> },
   { label: "Collectibles", progress: collectibleProgress, tab: "collectibles" as TabId, icon: <Gem className="w-5 h-5 text-primary" /> },
   { label: "Upgrades", progress: upgradeProgress, tab: "upgrades" as TabId, icon: <Anchor className="w-5 h-5 text-primary" /> }];
@@ -110,11 +110,11 @@ export default function Index() {
             <button
               key={cat.label}
               onClick={() => setTab(cat.tab)}
-              className="glass-card rounded-2xl p-4 flex flex-col items-center gap-3 active:scale-[0.97] ios-spring">
+              className="glass-card rounded-2xl p-4 flex flex-col items-center gap-3 active:scale-[0.97] ios-spring bg-[#e7e1d5] text-black">
               
                   <div className="flex items-center gap-2">
                     {cat.icon}
-                    <span className="text-[13px] font-semibold text-foreground">{cat.label}</span>
+                    <span className="text-[13px] font-semibold text-primary-foreground">{cat.label}</span>
                   </div>
                   <ProgressRing percent={cat.progress.percent} size={52} strokeWidth={4} />
                   <span className="text-[11px] text-muted-foreground font-medium">
