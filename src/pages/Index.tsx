@@ -33,11 +33,11 @@ export default function Index() {
   const [showReset, setShowReset] = useState(false);
 
   const categoryCards = [
-    { label: "Fish", progress: fishProgress, tab: "fish" as TabId, icon: <Fish className="w-5 h-5 text-primary" /> },
-    { label: "Pursuits", progress: pursuitProgress, tab: "pursuits" as TabId, icon: <ClipboardList className="w-5 h-5 text-primary" /> },
-    { label: "Collectibles", progress: collectibleProgress, tab: "collectibles" as TabId, icon: <Gem className="w-5 h-5 text-primary" /> },
-    { label: "Upgrades", progress: upgradeProgress, tab: "upgrades" as TabId, icon: <Anchor className="w-5 h-5 text-primary" /> },
-  ];
+  { label: "Fish", progress: fishProgress, tab: "fish" as TabId, icon: <Fish className="w-5 h-5 text-primary" /> },
+  { label: "Pursuits", progress: pursuitProgress, tab: "pursuits" as TabId, icon: <ClipboardList className="w-5 h-5 text-primary" /> },
+  { label: "Collectibles", progress: collectibleProgress, tab: "collectibles" as TabId, icon: <Gem className="w-5 h-5 text-primary" /> },
+  { label: "Upgrades", progress: upgradeProgress, tab: "upgrades" as TabId, icon: <Anchor className="w-5 h-5 text-primary" /> }];
+
 
   return (
     <div className="min-h-screen bg-background pb-24">
@@ -46,7 +46,7 @@ export default function Index() {
         <div className="max-w-lg mx-auto flex items-center justify-between px-5 py-3">
           <div>
             <h1 className="text-xl font-bold tracking-tight text-foreground">DREDGE</h1>
-            <p className="text-[11px] text-muted-foreground font-medium uppercase tracking-wider">Completion Tracker</p>
+            <p className="text-[11px] text-muted-foreground font-medium uppercase tracking-wider">100% Checklist</p>
           </div>
           <div className="flex items-center gap-3">
             <div className="glass-pill rounded-full px-3 py-1.5">
@@ -57,8 +57,8 @@ export default function Index() {
             <button
               onClick={() => setShowReset(true)}
               className="p-2.5 rounded-full glass-pill active:scale-90 ios-spring text-muted-foreground"
-              title="Reset progress"
-            >
+              title="Reset progress">
+              
               <RotateCcw className="w-4 h-4" />
             </button>
           </div>
@@ -66,8 +66,8 @@ export default function Index() {
       </header>
 
       {/* Reset confirmation - iOS alert style */}
-      {showReset && (
-        <div className="fixed inset-0 z-50 bg-background/60 backdrop-blur-xl flex items-center justify-center p-6">
+      {showReset &&
+      <div className="fixed inset-0 z-50 bg-background/60 backdrop-blur-xl flex items-center justify-center p-6">
           <div className="glass-card rounded-3xl p-0 max-w-[280px] w-full overflow-hidden text-center">
             <div className="px-6 pt-6 pb-4">
               <h2 className="text-[17px] font-semibold text-foreground">Reset All Progress?</h2>
@@ -76,26 +76,26 @@ export default function Index() {
             <div className="border-t border-border/50">
               <div className="grid grid-cols-2 divide-x divide-border/50">
                 <button
-                  onClick={() => setShowReset(false)}
-                  className="py-3.5 text-[17px] font-medium text-primary active:bg-secondary/30 transition-colors"
-                >
+                onClick={() => setShowReset(false)}
+                className="py-3.5 text-[17px] font-medium text-primary active:bg-secondary/30 transition-colors">
+                
                   Cancel
                 </button>
                 <button
-                  onClick={() => { resetAll(); setShowReset(false); }}
-                  className="py-3.5 text-[17px] font-medium text-destructive active:bg-secondary/30 transition-colors"
-                >
+                onClick={() => {resetAll();setShowReset(false);}}
+                className="py-3.5 text-[17px] font-medium text-destructive active:bg-secondary/30 transition-colors">
+                
                   Reset
                 </button>
               </div>
             </div>
           </div>
         </div>
-      )}
+      }
 
       <main className="max-w-lg mx-auto px-4 py-5 space-y-5">
-        {tab === "overview" && (
-          <div className="space-y-6">
+        {tab === "overview" &&
+        <div className="space-y-6">
             {/* Hero progress */}
             <div className="glass-card rounded-3xl p-6 flex flex-col items-center">
               <ProgressRing percent={overall.percent} size={130} strokeWidth={7} />
@@ -106,12 +106,12 @@ export default function Index() {
 
             {/* Category grid */}
             <div className="grid grid-cols-2 gap-3">
-              {categoryCards.map((cat) => (
-                <button
-                  key={cat.label}
-                  onClick={() => setTab(cat.tab)}
-                  className="glass-card rounded-2xl p-4 flex flex-col items-center gap-3 active:scale-[0.97] ios-spring"
-                >
+              {categoryCards.map((cat) =>
+            <button
+              key={cat.label}
+              onClick={() => setTab(cat.tab)}
+              className="glass-card rounded-2xl p-4 flex flex-col items-center gap-3 active:scale-[0.97] ios-spring">
+              
                   <div className="flex items-center gap-2">
                     {cat.icon}
                     <span className="text-[13px] font-semibold text-foreground">{cat.label}</span>
@@ -121,79 +121,79 @@ export default function Index() {
                     {cat.progress.done}/{cat.progress.total}
                   </span>
                 </button>
-              ))}
+            )}
             </div>
           </div>
-        )}
+        }
 
-        {tab === "fish" && (
-          <div className="space-y-3">
+        {tab === "fish" &&
+        <div className="space-y-3">
             <h2 className="text-2xl font-bold text-foreground px-1">Fish</h2>
             <p className="text-sm text-muted-foreground px-1 -mt-1">By region • {fishProgress.done}/{fishProgress.total}</p>
-            {fishData.map((region) => (
-              <ChecklistSection
-                key={region.id}
-                title={region.name}
-                icon={region.icon}
-                items={region.items}
-                isChecked={isChecked}
-                toggle={toggle}
-                progress={getProgress(region.items.map((i) => i.id))}
-              />
-            ))}
-          </div>
-        )}
+            {fishData.map((region) =>
+          <ChecklistSection
+            key={region.id}
+            title={region.name}
+            icon={region.icon}
+            items={region.items}
+            isChecked={isChecked}
+            toggle={toggle}
+            progress={getProgress(region.items.map((i) => i.id))} />
 
-        {tab === "pursuits" && (
-          <div className="space-y-3">
+          )}
+          </div>
+        }
+
+        {tab === "pursuits" &&
+        <div className="space-y-3">
             <h2 className="text-2xl font-bold text-foreground px-1">Pursuits</h2>
             <p className="text-sm text-muted-foreground px-1 -mt-1">{pursuitProgress.done}/{pursuitProgress.total} completed</p>
             <ChecklistSection
-              title={pursuitsData.name}
-              icon={pursuitsData.icon}
-              items={pursuitsData.items}
-              isChecked={isChecked}
-              toggle={toggle}
-              progress={pursuitProgress}
-            />
+            title={pursuitsData.name}
+            icon={pursuitsData.icon}
+            items={pursuitsData.items}
+            isChecked={isChecked}
+            toggle={toggle}
+            progress={pursuitProgress} />
+          
           </div>
-        )}
+        }
 
-        {tab === "collectibles" && (
-          <div className="space-y-3">
+        {tab === "collectibles" &&
+        <div className="space-y-3">
             <h2 className="text-2xl font-bold text-foreground px-1">Collectibles</h2>
             <p className="text-sm text-muted-foreground px-1 -mt-1">{collectibleProgress.done}/{collectibleProgress.total} found</p>
-            {collectiblesData.map((cat) => (
-              <ChecklistSection
-                key={cat.id}
-                title={cat.name}
-                icon={cat.icon}
-                items={cat.items}
-                isChecked={isChecked}
-                toggle={toggle}
-                progress={getProgress(cat.items.map((i) => i.id))}
-              />
-            ))}
-          </div>
-        )}
+            {collectiblesData.map((cat) =>
+          <ChecklistSection
+            key={cat.id}
+            title={cat.name}
+            icon={cat.icon}
+            items={cat.items}
+            isChecked={isChecked}
+            toggle={toggle}
+            progress={getProgress(cat.items.map((i) => i.id))} />
 
-        {tab === "upgrades" && (
-          <div className="space-y-3">
+          )}
+          </div>
+        }
+
+        {tab === "upgrades" &&
+        <div className="space-y-3">
             <h2 className="text-2xl font-bold text-foreground px-1">Upgrades</h2>
             <p className="text-sm text-muted-foreground px-1 -mt-1">{upgradeProgress.done}/{upgradeProgress.total} unlocked</p>
             <ChecklistSection
-              title={upgradesData.name}
-              icon={upgradesData.icon}
-              items={upgradesData.items}
-              isChecked={isChecked}
-              toggle={toggle}
-              progress={upgradeProgress}
-            />
+            title={upgradesData.name}
+            icon={upgradesData.icon}
+            items={upgradesData.items}
+            isChecked={isChecked}
+            toggle={toggle}
+            progress={upgradeProgress} />
+          
           </div>
-        )}
+        }
       </main>
 
       <TabBar active={tab} onChange={setTab} />
-    </div>
-  );
+    </div>);
+
 }
