@@ -4,7 +4,7 @@ import { ProgressRing } from "@/components/ProgressRing";
 import { ChecklistSection } from "@/components/ChecklistSection";
 import { useChecklist } from "@/hooks/useChecklist";
 import { fishData, pursuitsData, collectiblesData, upgradesData } from "@/data/dredgeData";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw, Fish, ClipboardList, Gem, Anchor } from "lucide-react";
 
 export default function Index() {
   const [tab, setTab] = useState<TabId>("overview");
@@ -32,22 +32,31 @@ export default function Index() {
 
   const [showReset, setShowReset] = useState(false);
 
+  const categoryCards = [
+    { label: "Fish", progress: fishProgress, tab: "fish" as TabId, icon: <Fish className="w-5 h-5 text-primary" /> },
+    { label: "Pursuits", progress: pursuitProgress, tab: "pursuits" as TabId, icon: <ClipboardList className="w-5 h-5 text-primary" /> },
+    { label: "Collectibles", progress: collectibleProgress, tab: "collectibles" as TabId, icon: <Gem className="w-5 h-5 text-primary" /> },
+    { label: "Upgrades", progress: upgradeProgress, tab: "upgrades" as TabId, icon: <Anchor className="w-5 h-5 text-primary" /> },
+  ];
+
   return (
-    <div className="min-h-screen bg-background pb-20">
-      {/* Header */}
-      <header className="sticky top-0 z-40 bg-card/80 backdrop-blur-md border-b border-border">
-        <div className="max-w-lg mx-auto flex items-center justify-between px-4 py-3">
+    <div className="min-h-screen bg-background pb-24">
+      {/* iOS-style large title header */}
+      <header className="sticky top-0 z-40 glass" style={{ paddingTop: "env(safe-area-inset-top, 8px)" }}>
+        <div className="max-w-lg mx-auto flex items-center justify-between px-5 py-3">
           <div>
-            <h1 className="text-lg font-logbook tracking-wide text-primary">DREDGE</h1>
-            <p className="text-[10px] text-muted-foreground uppercase tracking-widest">Completion Tracker</p>
+            <h1 className="text-xl font-bold tracking-tight text-foreground">DREDGE</h1>
+            <p className="text-[11px] text-muted-foreground font-medium uppercase tracking-wider">Completion Tracker</p>
           </div>
           <div className="flex items-center gap-3">
-            <span className={`text-sm font-mono font-bold ${overall.percent === 100 ? "text-completion" : "text-foreground"}`}>
-              {overall.percent}%
-            </span>
+            <div className="glass-pill rounded-full px-3 py-1.5">
+              <span className={`text-sm font-semibold ${overall.percent === 100 ? "text-completion" : "text-primary"}`}>
+                {overall.percent}%
+              </span>
+            </div>
             <button
               onClick={() => setShowReset(true)}
-              className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
+              className="p-2.5 rounded-full glass-pill active:scale-90 ios-spring text-muted-foreground"
               title="Reset progress"
             >
               <RotateCcw className="w-4 h-4" />
@@ -56,55 +65,59 @@ export default function Index() {
         </div>
       </header>
 
-      {/* Reset confirmation */}
+      {/* Reset confirmation - iOS alert style */}
       {showReset && (
-        <div className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-card border border-border rounded-xl p-6 max-w-xs w-full space-y-4">
-            <h2 className="font-logbook text-lg text-foreground">Reset All Progress?</h2>
-            <p className="text-sm text-muted-foreground">This will clear all checked items. This cannot be undone.</p>
-            <div className="flex gap-3">
-              <button
-                onClick={() => setShowReset(false)}
-                className="flex-1 py-2 rounded-lg bg-muted text-muted-foreground text-sm hover:bg-secondary transition-colors"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={() => { resetAll(); setShowReset(false); }}
-                className="flex-1 py-2 rounded-lg bg-destructive text-destructive-foreground text-sm hover:bg-destructive/80 transition-colors"
-              >
-                Reset
-              </button>
+        <div className="fixed inset-0 z-50 bg-background/60 backdrop-blur-xl flex items-center justify-center p-6">
+          <div className="glass-card rounded-3xl p-0 max-w-[280px] w-full overflow-hidden text-center">
+            <div className="px-6 pt-6 pb-4">
+              <h2 className="text-[17px] font-semibold text-foreground">Reset All Progress?</h2>
+              <p className="text-[13px] text-muted-foreground mt-2">This will clear all checked items. This action cannot be undone.</p>
+            </div>
+            <div className="border-t border-border/50">
+              <div className="grid grid-cols-2 divide-x divide-border/50">
+                <button
+                  onClick={() => setShowReset(false)}
+                  className="py-3.5 text-[17px] font-medium text-primary active:bg-secondary/30 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => { resetAll(); setShowReset(false); }}
+                  className="py-3.5 text-[17px] font-medium text-destructive active:bg-secondary/30 transition-colors"
+                >
+                  Reset
+                </button>
+              </div>
             </div>
           </div>
         </div>
       )}
 
-      <main className="max-w-lg mx-auto px-4 py-4 space-y-4">
+      <main className="max-w-lg mx-auto px-4 py-5 space-y-5">
         {tab === "overview" && (
           <div className="space-y-6">
-            <div className="text-center py-4">
-              <ProgressRing percent={overall.percent} size={120} strokeWidth={8} />
-              <p className="mt-3 text-sm text-muted-foreground">
-                {overall.done} / {overall.total} completed
+            {/* Hero progress */}
+            <div className="glass-card rounded-3xl p-6 flex flex-col items-center">
+              <ProgressRing percent={overall.percent} size={130} strokeWidth={7} />
+              <p className="mt-4 text-sm text-muted-foreground font-medium">
+                {overall.done} of {overall.total} completed
               </p>
             </div>
 
+            {/* Category grid */}
             <div className="grid grid-cols-2 gap-3">
-              {[
-                { label: "Fish", progress: fishProgress, tab: "fish" as TabId },
-                { label: "Pursuits", progress: pursuitProgress, tab: "pursuits" as TabId },
-                { label: "Collectibles", progress: collectibleProgress, tab: "collectibles" as TabId },
-                { label: "Upgrades", progress: upgradeProgress, tab: "upgrades" as TabId },
-              ].map((cat) => (
+              {categoryCards.map((cat) => (
                 <button
                   key={cat.label}
                   onClick={() => setTab(cat.tab)}
-                  className="bg-surface border border-border rounded-xl p-4 flex flex-col items-center gap-2 hover:border-primary/30 transition-colors"
+                  className="glass-card rounded-2xl p-4 flex flex-col items-center gap-3 active:scale-[0.97] ios-spring"
                 >
-                  <ProgressRing percent={cat.progress.percent} size={56} strokeWidth={4} />
-                  <span className="text-xs font-medium text-surface-foreground">{cat.label}</span>
-                  <span className="text-[10px] text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    {cat.icon}
+                    <span className="text-[13px] font-semibold text-foreground">{cat.label}</span>
+                  </div>
+                  <ProgressRing percent={cat.progress.percent} size={52} strokeWidth={4} />
+                  <span className="text-[11px] text-muted-foreground font-medium">
                     {cat.progress.done}/{cat.progress.total}
                   </span>
                 </button>
@@ -115,7 +128,8 @@ export default function Index() {
 
         {tab === "fish" && (
           <div className="space-y-3">
-            <h2 className="font-logbook text-xl text-primary">Fish Encyclopedia</h2>
+            <h2 className="text-2xl font-bold text-foreground px-1">Fish</h2>
+            <p className="text-sm text-muted-foreground px-1 -mt-1">By region • {fishProgress.done}/{fishProgress.total}</p>
             {fishData.map((region) => (
               <ChecklistSection
                 key={region.id}
@@ -132,7 +146,8 @@ export default function Index() {
 
         {tab === "pursuits" && (
           <div className="space-y-3">
-            <h2 className="font-logbook text-xl text-primary">Pursuits</h2>
+            <h2 className="text-2xl font-bold text-foreground px-1">Pursuits</h2>
+            <p className="text-sm text-muted-foreground px-1 -mt-1">{pursuitProgress.done}/{pursuitProgress.total} completed</p>
             <ChecklistSection
               title={pursuitsData.name}
               icon={pursuitsData.icon}
@@ -146,7 +161,8 @@ export default function Index() {
 
         {tab === "collectibles" && (
           <div className="space-y-3">
-            <h2 className="font-logbook text-xl text-primary">Collectibles</h2>
+            <h2 className="text-2xl font-bold text-foreground px-1">Collectibles</h2>
+            <p className="text-sm text-muted-foreground px-1 -mt-1">{collectibleProgress.done}/{collectibleProgress.total} found</p>
             {collectiblesData.map((cat) => (
               <ChecklistSection
                 key={cat.id}
@@ -163,7 +179,8 @@ export default function Index() {
 
         {tab === "upgrades" && (
           <div className="space-y-3">
-            <h2 className="font-logbook text-xl text-primary">Boat Upgrades</h2>
+            <h2 className="text-2xl font-bold text-foreground px-1">Upgrades</h2>
+            <p className="text-sm text-muted-foreground px-1 -mt-1">{upgradeProgress.done}/{upgradeProgress.total} unlocked</p>
             <ChecklistSection
               title={upgradesData.name}
               icon={upgradesData.icon}
