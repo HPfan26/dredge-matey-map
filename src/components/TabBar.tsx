@@ -17,23 +17,33 @@ const tabs: { id: TabId; label: string; icon: React.ReactNode }[] = [
 
 export function TabBar({ active, onChange }: TabBarProps) {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 glass-tab z-50" style={{ paddingBottom: "env(safe-area-inset-bottom, 8px)" }}>
-      <div className="flex justify-around items-end h-14 max-w-lg mx-auto px-2">
+    <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-center" style={{ paddingBottom: "max(env(safe-area-inset-bottom, 12px), 12px)" }}>
+      <nav
+        className="flex items-center gap-1 px-3 py-2 rounded-full"
+        style={{
+          background: "linear-gradient(135deg, hsla(220, 20%, 18%, 0.55), hsla(220, 20%, 12%, 0.45))",
+          backdropFilter: "blur(50px) saturate(2.2) brightness(1.1)",
+          WebkitBackdropFilter: "blur(50px) saturate(2.2) brightness(1.1)",
+          border: "1px solid hsla(220, 15%, 35%, 0.35)",
+          boxShadow: "inset 0 1px 0 0 hsla(0, 0%, 100%, 0.08), inset 0 -0.5px 0 0 hsla(0, 0%, 0%, 0.1), 0 8px 40px -8px hsla(0, 0%, 0%, 0.5), 0 2px 12px -2px hsla(0, 0%, 0%, 0.3)",
+        }}
+      >
         {tabs.map((tab) => {
           const isActive = active === tab.id;
           return (
             <button
               key={tab.id}
               onClick={() => onChange(tab.id)}
-              className="flex flex-col items-center gap-0.5 px-3 pt-1.5 pb-1 relative ios-spring active:scale-90"
+              className="relative flex flex-col items-center gap-0.5 px-4 py-1.5 rounded-full ios-spring active:scale-90 transition-all duration-200"
+              style={isActive ? {
+                background: "hsla(var(--primary), 0.15)",
+                boxShadow: "inset 0 0.5px 0 0 hsla(0, 0%, 100%, 0.1)",
+              } : {}}
             >
-              <div className={`relative transition-colors duration-200 ${isActive ? "text-primary" : "text-muted-foreground"}`}>
+              <div className={`transition-colors duration-200 ${isActive ? "text-primary" : "text-muted-foreground"}`}>
                 {tab.icon}
-                {isActive && (
-                  <div className="absolute -inset-2 rounded-full bg-primary/10 blur-md -z-10" />
-                )}
               </div>
-              <span className={`text-[10px] font-medium transition-colors duration-200 ${
+              <span className={`text-[9px] font-semibold transition-colors duration-200 ${
                 isActive ? "text-primary" : "text-muted-foreground"
               }`}>
                 {tab.label}
@@ -41,7 +51,7 @@ export function TabBar({ active, onChange }: TabBarProps) {
             </button>
           );
         })}
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 }
