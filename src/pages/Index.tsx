@@ -146,8 +146,6 @@ export default function Index() {
                   items={catPursuits.map((p) => ({
                     id: p.id,
                     name: p.name,
-                    description: p.notes || undefined,
-                    region: p.region,
                   }))}
                   isChecked={isChecked}
                   toggle={toggle}
