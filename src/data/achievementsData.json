@@ -1,0 +1,602 @@
+[
+  {
+    "id": "from-the-depths",
+    "name": "From the Depths",
+    "description": "Obtain all other trophies.",
+    "order": 1,
+    "category": "Base game",
+    "difficulty": "Hard",
+    "icon": "assets/achievements/from-the-depths.jpg",
+    "level": "Platinum"
+  },
+  {
+    "id": "introductions",
+    "name": "Introductions",
+    "description": "Complete the introduction quest.",
+    "order": 2,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/introductions.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "master-angler",
+    "name": "Master Angler",
+    "description": "Catch all known species of fish.",
+    "order": 3,
+    "category": "Base game",
+    "difficulty": "Hard",
+    "icon": "assets/achievements/master-angler.jpg",
+    "level": "Gold"
+  },
+  {
+    "id": "the-key",
+    "name": "The Key",
+    "description": "Deliver the Key.",
+    "order": 4,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/the-key.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "the-secret",
+    "name": "The Secret",
+    "description": "Surrender the Music Box.",
+    "order": 5,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/the-secret.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "the-bond",
+    "name": "The Bond",
+    "description": "Entrust the Ring.",
+    "order": 6,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/the-bond.jpg",
+    "level": "Silver"
+  },
+  {
+    "id": "the-chains",
+    "name": "The Chains",
+    "description": "Relinquish the Necklace.",
+    "order": 7,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/the-chains.jpg",
+    "level": "Silver"
+  },
+  {
+    "id": "the-moment",
+    "name": "The Moment",
+    "description": "Give up the Pocket Watch.",
+    "order": 8,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/the-moment.jpg",
+    "level": "Silver"
+  },
+  {
+    "id": "unshackled",
+    "name": "Unshackled",
+    "description": "Find a use for the relics.",
+    "order": 9,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/unshackled.jpg",
+    "level": "Gold"
+  },
+  {
+    "id": "sated",
+    "name": "Sated",
+    "description": "Throw it back.",
+    "order": 10,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/sated.jpg",
+    "level": "Gold"
+  },
+  {
+    "id": "perfect-packing",
+    "name": "Perfect Packing",
+    "description": "Have a full cargo.",
+    "order": 11,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/perfect-packing.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "aberration-attractor",
+    "name": "Aberration Attractor",
+    "description": "Catch all aberrations.",
+    "order": 12,
+    "category": "Base game",
+    "difficulty": "Hard",
+    "icon": "assets/achievements/aberration-attractor.jpg",
+    "level": "Gold"
+  },
+  {
+    "id": "from-the-fog",
+    "name": "From the Fog",
+    "description": "Hear a Foghorn echo.",
+    "order": 13,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/from-the-fog.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "prey-sighted",
+    "name": "Prey Sighted",
+    "description": "Spot a fish of each category through your Spyglass.",
+    "order": 14,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/prey-sighted.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "mixed-results",
+    "name": "Mixed Results",
+    "description": "Use Mixed Bait to attract 3 different species to a single spot.",
+    "order": 15,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/mixed-results.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "cruel-heat",
+    "name": "Cruel Heat",
+    "description": "Keep your Haste burn meter above 50% for 10 seconds.",
+    "order": 16,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/cruel-heat.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "dimensional-bypass",
+    "name": "Dimensional Bypass",
+    "description": "Traverse a long distance using Manifest.",
+    "order": 17,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/dimensional-bypass.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "banisher",
+    "name": "Banisher",
+    "description": "Banish 10 threats.",
+    "order": 18,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/banisher.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "unsustainable-fishing",
+    "name": "Unsustainable Fishing",
+    "description": "Use Atrophy on a fishing spot a long way away.",
+    "order": 19,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/unsustainable-fishing.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "providence",
+    "name": "Providence",
+    "description": "Complete all side quests. One way or another.",
+    "order": 20,
+    "category": "Base game",
+    "difficulty": "Medium",
+    "icon": "assets/achievements/providence.jpg",
+    "level": "Silver"
+  },
+  {
+    "id": "safe-havens",
+    "name": "Safe Havens",
+    "description": "Visit every dock in the game.",
+    "order": 21,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/safe-havens.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "servant-of-the-shrines",
+    "name": "Servant of the Shrines",
+    "description": "Solve all fish shrine puzzles.",
+    "order": 22,
+    "category": "Base game",
+    "difficulty": "Medium",
+    "icon": "assets/achievements/servant-of-the-shrines.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "feeling-prepared",
+    "name": "Feeling Prepared",
+    "description": "Install equipment into every slot on your ship.",
+    "order": 23,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/feeling-prepared.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "researcher-rods",
+    "name": "Researcher: Rods",
+    "description": "Research all rods.",
+    "order": 24,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/researcher-rods.jpg",
+    "level": "Silver"
+  },
+  {
+    "id": "researcher-nets",
+    "name": "Researcher: Nets",
+    "description": "Research all nets.",
+    "order": 25,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/researcher-nets.jpg",
+    "level": "Silver"
+  },
+  {
+    "id": "researcher-pots",
+    "name": "Researcher: Pots",
+    "description": "Research all pots.",
+    "order": 26,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/researcher-pots.jpg",
+    "level": "Silver"
+  },
+  {
+    "id": "researcher-engines",
+    "name": "Researcher: Engines",
+    "description": "Research all engines.",
+    "order": 27,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/researcher-engines.jpg",
+    "level": "Silver"
+  },
+  {
+    "id": "lifted-from-the-deep",
+    "name": "Lifted From the Deep",
+    "description": "Catch 250 fish using rods.",
+    "order": 28,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/lifted-from-the-deep.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "trapped-by-these-walls",
+    "name": "Trapped by These Walls",
+    "description": "Catch 100 crabs in crab pots.",
+    "order": 29,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/trapped-by-these-walls.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "tangled-in-this-web",
+    "name": "Tangled in This Web",
+    "description": "Catch 150 fish in trawl nets.",
+    "order": 30,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/tangled-in-this-web.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "lives-for-profit",
+    "name": "Lives for Profit",
+    "description": "Sell a total of $2500 worth of fish.",
+    "order": 31,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/lives-for-profit.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "cash-for-gold",
+    "name": "Cash for Gold",
+    "description": "Sell a total of $1500 worth of trinkets.",
+    "order": 32,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/cash-for-gold.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "careless-harvesting",
+    "name": "Careless Harvesting",
+    "description": "Deplete a total of 25 fishing spots.",
+    "order": 33,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/careless-harvesting.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "swift-reaper",
+    "name": "Swift Reaper",
+    "description": "Have a combined fishing speed of 200%.",
+    "order": 34,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/swift-reaper.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "no-time-to-linger",
+    "name": "No Time to Linger",
+    "description": "Have a combined engine speed of 75kn.",
+    "order": 35,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/no-time-to-linger.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "light-up-the-night",
+    "name": "Light Up the Night",
+    "description": "Have a combined light strength of 3000 lumens.",
+    "order": 36,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/light-up-the-night.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "hull-improved",
+    "name": "Hull: Improved",
+    "description": "Upgrade to the 2nd tier hull.",
+    "order": 37,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/hull-improved.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "hull-refined",
+    "name": "Hull: Refined",
+    "description": "Upgrade to the 3rd tier hull.",
+    "order": 38,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/hull-refined.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "hull-advanced",
+    "name": "Hull: Advanced",
+    "description": "Upgrade to the 4th tier hull.",
+    "order": 39,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/hull-advanced.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "unwanted",
+    "name": "Unwanted",
+    "description": "Discard 25 fish.",
+    "order": 40,
+    "category": "Base game",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/unwanted.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "polar-angler",
+    "name": "Polar Angler",
+    "description": "Catch all known species of fish in The Pale Reach.",
+    "order": 1,
+    "category": "The Pale Reach",
+    "difficulty": "Hard",
+    "icon": "assets/achievements/polar-angler.jpg",
+    "level": "Silver"
+  },
+  {
+    "id": "cold-corruptions",
+    "name": "Cold Corruptions",
+    "description": "Catch all aberrations in The Pale Reach.",
+    "order": 2,
+    "category": "The Pale Reach",
+    "difficulty": "Hard",
+    "icon": "assets/achievements/cold-corruptions.jpg",
+    "level": "Silver"
+  },
+  {
+    "id": "feeding-time",
+    "name": "Feeding Time",
+    "description": "Feed the Narwhal.",
+    "order": 3,
+    "category": "The Pale Reach",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/feeding-time.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "under-the-ice",
+    "name": "Under the Ice",
+    "description": "Finish the main quest in The Pale Reach.",
+    "order": 4,
+    "category": "The Pale Reach",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/under-the-ice.jpg",
+    "level": "Silver"
+  },
+  {
+    "id": "frozen-favors",
+    "name": "Frozen Favors",
+    "description": "Finish all side quests in The Pale Reach.",
+    "order": 5,
+    "category": "The Pale Reach",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/frozen-favors.jpg",
+    "level": "Silver"
+  },
+  {
+    "id": "icebreaker",
+    "name": "Icebreaker",
+    "description": "Equip the Icebreaker.",
+    "order": 6,
+    "category": "The Pale Reach",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/icebreaker.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "fresh-fish",
+    "name": "Fresh Fish",
+    "description": "Have 5 ice blocks in your cargo.",
+    "order": 7,
+    "category": "The Pale Reach",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/fresh-fish.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "from-the-black-depths",
+    "name": "From the Black Depths",
+    "description": "Catch the Colossal Squid.",
+    "order": 8,
+    "category": "The Pale Reach",
+    "difficulty": "Hard",
+    "icon": "assets/achievements/from-the-black-depths.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "ancient-angler",
+    "name": "Ancient Angler",
+    "description": "Catch all known species of fish in The Iron Rig.",
+    "order": 1,
+    "category": "The Iron Rig",
+    "difficulty": "Hard",
+    "icon": "assets/achievements/ancient-angler.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "primordial-deviations",
+    "name": "Primordial Deviations",
+    "description": "Catch all aberrations in The Iron Rig (excluding exotics).",
+    "order": 2,
+    "category": "The Iron Rig",
+    "difficulty": "Hard",
+    "icon": "assets/achievements/primordial-deviations.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "missing-shipment",
+    "name": "Missing Shipment",
+    "description": "Deliver the missing shipment to the rig.",
+    "order": 3,
+    "category": "The Iron Rig",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/missing-shipment.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "the-iron-ruin",
+    "name": "The Iron Ruin",
+    "description": "Override the rig's defenses.",
+    "order": 4,
+    "category": "The Iron Rig",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/the-iron-ruin.jpg",
+    "level": "Silver"
+  },
+  {
+    "id": "rig-architect",
+    "name": "Rig Architect",
+    "description": "Build all levels of all buildings on the rig.",
+    "order": 5,
+    "category": "The Iron Rig",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/rig-architect.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "remedial-apparatus",
+    "name": "Remedial Apparatus",
+    "description": "Equip the Siphon Trawler.",
+    "order": 6,
+    "category": "The Iron Rig",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/remedial-apparatus.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "dark-custodian",
+    "name": "Dark Custodian",
+    "description": "Collect a total of 10 Dark Canisters.",
+    "order": 7,
+    "category": "The Iron Rig",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/dark-custodian.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "hull-industrial",
+    "name": "Hull: Industrial",
+    "description": "Upgrade to the 5th tier hull.",
+    "order": 8,
+    "category": "The Iron Rig",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/hull-industrial.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "exotic-exemplar",
+    "name": "Exotic Exemplar",
+    "description": "Catch any exotic aberration.",
+    "order": 9,
+    "category": "The Iron Rig",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/exotic-exemplar.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "enhanced-abilities",
+    "name": "Enhanced Abilities",
+    "description": "Upgrade all 3 basic abilities.",
+    "order": 10,
+    "category": "The Iron Rig",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/enhanced-abilities.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "shadowed-splashes",
+    "name": "Shadowed Splashes",
+    "description": "Have 5 Dark Splashes in your inventory.",
+    "order": 11,
+    "category": "The Iron Rig",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/shadowed-splashes.jpg",
+    "level": "Bronze"
+  },
+  {
+    "id": "the-gleaming-goliath",
+    "name": "The Gleaming Goliath",
+    "description": "Evade that which stalks the disturbed sediment.",
+    "order": 12,
+    "category": "The Iron Rig",
+    "difficulty": "Easy",
+    "icon": "assets/achievements/the-gleaming-goliath.jpg",
+    "level": "Bronze"
+  }
+]
