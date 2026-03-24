@@ -61,7 +61,7 @@ export default function Index() {
           </div>
           <button
             onClick={() => navigate("/settings")}
-            className="p-2.5 rounded-full glass-pill active:scale-90 ios-spring text-muted-foreground"
+            className="p-2.5 rounded-full active:scale-90 ios-spring text-foreground border border-border"
             title="Settings"
           >
             <Settings className="w-5 h-5" />
@@ -71,7 +71,7 @@ export default function Index() {
 
       <main className="max-w-lg mx-auto px-4 py-5 space-y-5">
         {tab === "overview" && (
-          <div className="space-y-6">
+          <div className="space-y-3">
             <div className="glass-card rounded-3xl p-6 flex flex-col items-center">
               <p className="text-sm font-semibold text-foreground mb-2">Game Progress</p>
               <ProgressRing percent={overall.percent} size={130} strokeWidth={7} />
