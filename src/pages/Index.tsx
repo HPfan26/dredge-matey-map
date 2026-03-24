@@ -16,7 +16,7 @@ import {
   achievementCategories,
   getAchievementsByCategory,
 } from "@/data/dredgeData";
-import { pursuitsData } from "@/data/pursuitsData";
+import { allPursuits, pursuitCategories, getPursuitsByCategory, pursuitCategoryIcons } from "@/data/pursuitsData";
 import { RotateCcw, Fish, ClipboardList, BookOpen, Trophy } from "lucide-react";
 import { ChevronRight } from "lucide-react";
 
@@ -24,9 +24,8 @@ export default function Index() {
   const [tab, setTab] = useState<TabId>("overview");
   const { toggle, isChecked, getProgress, resetAll } = useChecklist();
 
-  // All IDs
   const fishIds = useMemo(() => allFish.map((f) => f.id), []);
-  const pursuitIds = useMemo(() => pursuitsData.items.map((i) => i.id), []);
+  const pursuitIds = useMemo(() => allPursuits.map((i) => i.id), []);
   const bookIds = useMemo(() => books.map((b) => b.id), []);
   const noteIds = useMemo(() => notes.map((n) => n.id), []);
   const collectibleIds = useMemo(() => [...bookIds, ...noteIds], [bookIds, noteIds]);
@@ -150,14 +149,26 @@ export default function Index() {
           <div className="space-y-3">
             <h2 className="text-2xl font-bold text-foreground px-1">Pursuits</h2>
             <p className="text-sm text-muted-foreground px-1 -mt-1">{pursuitProgress.done}/{pursuitProgress.total} completed</p>
-            <ChecklistSection
-              title={pursuitsData.name}
-              icon={pursuitsData.icon}
-              items={pursuitsData.items}
-              isChecked={isChecked}
-              toggle={toggle}
-              progress={pursuitProgress}
-            />
+            {pursuitCategories.map((cat) => {
+              const catPursuits = getPursuitsByCategory(cat);
+              const catProgress = getProgress(catPursuits.map((p) => p.id));
+              return (
+                <ChecklistSection
+                  key={cat}
+                  title={cat}
+                  icon={pursuitCategoryIcons[cat]}
+                  items={catPursuits.map((p) => ({
+                    id: p.id,
+                    name: p.name,
+                    description: p.notes || undefined,
+                    region: p.region,
+                  }))}
+                  isChecked={isChecked}
+                  toggle={toggle}
+                  progress={catProgress}
+                />
+              );
+            })}
           </div>
         )}
 
