@@ -31,7 +31,7 @@ export default function GuidesPage() {
             <img
               src={guide.imageUrl}
               alt={guide.title}
-              className="w-full h-44 object-contain bg-secondary/20"
+              className="w-full h-44 object-cover"
               loading="lazy"
             />
             <div className="p-4">
