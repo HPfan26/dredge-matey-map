@@ -53,7 +53,7 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background pb-24">
-      <header className="sticky top-0 z-40 glass" style={{ paddingTop: "env(safe-area-inset-top, 8px)" }}>
+      <header className="sticky top-0 z-40 bg-background" style={{ paddingTop: "env(safe-area-inset-top, 8px)" }}>
         <div className="max-w-lg mx-auto flex items-center justify-between px-5 py-3">
           <div>
             <h1 className="text-xl font-bold tracking-tight text-foreground">DREDGE</h1>
