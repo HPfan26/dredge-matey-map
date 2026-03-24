@@ -17,7 +17,7 @@ export default function GuidesPage() {
       </header>
 
       <main className="max-w-lg mx-auto px-4 py-5 space-y-3">
-        <p className="text-sm text-muted-foreground px-1">
+        <p className="text-base font-semibold text-muted-foreground px-1">
           Walkthroughs and tips from The Cozy Gamers
         </p>
         {guides.map((guide) => (
@@ -31,7 +31,7 @@ export default function GuidesPage() {
             <img
               src={guide.imageUrl}
               alt={guide.title}
-              className="w-full h-44 object-cover"
+              className="w-full h-44 object-contain bg-secondary/20"
               loading="lazy"
             />
             <div className="p-4">
