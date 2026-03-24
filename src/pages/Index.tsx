@@ -19,7 +19,7 @@ import {
 } from "@/data/dredgeData";
 import { allPursuits, pursuitCategories, getPursuitsByCategory, pursuitCategoryIcons } from "@/data/pursuitsData";
 import MapPage from "@/pages/MapPage";
-import { Settings, Fish, ClipboardList, BookOpen, Trophy } from "lucide-react";
+import { Settings, Fish, ClipboardList, BookOpen, Trophy, BookMarked } from "lucide-react";
 import { ChevronRight } from "lucide-react";
 
 export default function Index() {
@@ -97,6 +97,15 @@ export default function Index() {
                 </button>
               ))}
             </div>
+
+            <button
+              onClick={() => navigate("/guides")}
+              className="w-full glass-card rounded-2xl p-4 flex items-center justify-center gap-2 active:scale-[0.97] ios-spring"
+            >
+              <BookMarked className="w-5 h-5 text-primary" />
+              <span className="text-[15px] font-semibold text-foreground">More Guides</span>
+              <ChevronRight className="w-4 h-4 text-muted-foreground" />
+            </button>
           </div>
         )}
 

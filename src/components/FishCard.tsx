@@ -1,4 +1,4 @@
-import { Check, MapPin, Clock, DollarSign, Puzzle, Anchor } from "lucide-react";
+import { Check, MapPin, Clock, DollarSign, Puzzle } from "lucide-react";
 import type { FishItem } from "@/data/dredgeData";
 
 interface FishCardProps {
@@ -15,6 +15,15 @@ export function FishCard({ fish, checked, onToggle }: FishCardProps) {
         checked ? "opacity-60" : ""
       }`}
     >
+      {/* Checkbox - left of image */}
+      <div
+        className={`w-[22px] h-[22px] rounded-full flex items-center justify-center flex-shrink-0 mt-5 transition-all duration-200 ${
+          checked ? "bg-primary ios-spring" : "border-2 border-muted-foreground/30"
+        }`}
+      >
+        {checked && <Check className="w-3 h-3 text-primary-foreground" strokeWidth={3} />}
+      </div>
+
       {/* Fish image */}
       <div className="w-16 h-16 rounded-xl bg-secondary/30 flex-shrink-0 flex items-center justify-center overflow-hidden relative">
         <img
@@ -30,22 +39,13 @@ export function FishCard({ fish, checked, onToggle }: FishCardProps) {
 
       {/* Info */}
       <div className="flex-1 min-w-0 space-y-1.5">
-        <div className="flex items-center justify-between gap-2">
-          <span
-            className={`text-[15px] font-semibold truncate transition-colors ${
-              checked ? "text-muted-foreground line-through" : "text-foreground"
-            } ${fish.aberrant ? "text-destructive" : ""}`}
-          >
-            {fish.name}
-          </span>
-          <div
-            className={`w-[22px] h-[22px] rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
-              checked ? "bg-primary ios-spring" : "border-2 border-muted-foreground/30"
-            }`}
-          >
-            {checked && <Check className="w-3 h-3 text-primary-foreground" strokeWidth={3} />}
-          </div>
-        </div>
+        <span
+          className={`text-[15px] font-semibold truncate block transition-colors ${
+            checked ? "text-muted-foreground line-through" : "text-foreground"
+          } ${fish.aberrant ? "text-destructive" : ""}`}
+        >
+          {fish.name}
+        </span>
 
         <div className="grid grid-cols-2 gap-x-3 gap-y-0.5">
           <div className="flex items-center gap-1.5">

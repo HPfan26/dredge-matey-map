@@ -56,35 +56,35 @@ export default function MapPage() {
         <Filter className="w-5 h-5 text-primary" />
       </button>
 
-      {/* Filter panel */}
+      {/* Filter panel - full overlay, no scroll */}
       {showFilters && (
-        <div className="absolute inset-0 z-30 bg-background/80 backdrop-blur-xl overflow-auto">
-          <div className="max-w-lg mx-auto px-5 py-6" style={{ paddingTop: "calc(env(safe-area-inset-top, 8px) + 16px)" }}>
-            <div className="flex items-center justify-between mb-5">
-              <h2 className="text-xl font-bold text-foreground">Map Filters</h2>
+        <div className="absolute inset-0 z-30 bg-background/80 backdrop-blur-xl flex flex-col">
+          <div className="max-w-lg mx-auto px-5 py-4 flex-1 flex flex-col" style={{ paddingTop: "calc(env(safe-area-inset-top, 8px) + 12px)" }}>
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-lg font-bold text-foreground">Map Filters</h2>
               <button onClick={() => setShowFilters(false)} className="p-2 rounded-full active:bg-secondary/30">
                 <X className="w-5 h-5 text-muted-foreground" />
               </button>
             </div>
 
             {activeFilters.size > 0 && (
-              <button onClick={clearFilters} className="text-[13px] text-primary font-medium mb-4">
+              <button onClick={clearFilters} className="text-[13px] text-primary font-medium mb-2">
                 Clear all filters
               </button>
             )}
 
-            <div className="space-y-5">
+            <div className="space-y-3">
               {filterGroups.map((group) => (
                 <div key={group.label}>
-                  <h3 className="text-[13px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">{group.label}</h3>
-                  <div className="flex flex-wrap gap-2">
+                  <h3 className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">{group.label}</h3>
+                  <div className="flex flex-wrap gap-1.5">
                     {group.items.map((item) => {
                       const active = activeFilters.has(item);
                       return (
                         <button
                           key={item}
                           onClick={() => toggleFilter(item)}
-                          className={`px-3 py-1.5 rounded-full text-[13px] font-medium transition-all ios-spring active:scale-95 ${
+                          className={`px-2.5 py-1 rounded-full text-[12px] font-medium transition-all ios-spring active:scale-95 ${
                             active
                               ? "bg-primary text-primary-foreground"
                               : "glass-pill text-foreground"
