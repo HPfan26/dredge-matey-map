@@ -18,7 +18,6 @@ import {
   getAchievementsByCategory,
 } from "@/data/dredgeData";
 import { allPursuits, pursuitCategories, getPursuitsByCategory, pursuitCategoryIcons } from "@/data/pursuitsData";
-import MapPage from "@/pages/MapPage";
 import { Settings, Fish, ClipboardList, BookOpen, Trophy, BookMarked } from "lucide-react";
 import { ChevronRight } from "lucide-react";
 
@@ -48,7 +47,7 @@ export default function Index() {
   const categoryCards = [
     { label: "Fish", progress: fishProgress, tab: "fish" as TabId, icon: <Fish className="w-5 h-5 text-primary" /> },
     { label: "Pursuits", progress: pursuitProgress, tab: "pursuits" as TabId, icon: <ClipboardList className="w-5 h-5 text-primary" /> },
-    { label: "Items", progress: collectibleProgress, tab: "collectibles" as TabId, icon: <BookOpen className="w-5 h-5 text-primary" /> },
+    { label: "Collectibles", progress: collectibleProgress, tab: "collectibles" as TabId, icon: <BookOpen className="w-5 h-5 text-primary" /> },
     { label: "Trophies", progress: achievementProgress, tab: "achievements" as TabId, icon: <Trophy className="w-5 h-5 text-primary" /> },
   ];
 
@@ -74,6 +73,7 @@ export default function Index() {
         {tab === "overview" && (
           <div className="space-y-6">
             <div className="glass-card rounded-3xl p-6 flex flex-col items-center">
+              <p className="text-sm font-semibold text-foreground mb-2">Game Progress</p>
               <ProgressRing percent={overall.percent} size={130} strokeWidth={7} />
               <p className="mt-4 text-sm text-muted-foreground font-medium">
                 {overall.done} of {overall.total} completed
@@ -202,7 +202,7 @@ export default function Index() {
           </div>
         )}
 
-        {tab === "map" && <MapPage />}
+        
       </main>
 
       <TabBar active={tab} onChange={setTab} />
@@ -222,7 +222,6 @@ function FishRegionSection({
   return (
     <div className="glass-card rounded-2xl overflow-hidden">
       <button onClick={() => setOpen(!open)} className="w-full flex items-center gap-3 px-4 py-3.5 active:bg-secondary/30 transition-colors">
-        <span className="text-lg">{icon}</span>
         <span className="font-semibold text-[15px] text-foreground flex-1 text-left">{region}</span>
         <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${progress.percent === 100 ? "bg-completion/20 text-completion" : "glass-pill text-muted-foreground"}`}>
           {progress.done}/{progress.total}
@@ -249,11 +248,9 @@ function AchievementSection({
   progress: { done: number; total: number; percent: number };
 }) {
   const [open, setOpen] = useState(false);
-  const catIcon = category === "The Pale Reach" ? "❄️" : category === "The Iron Rig" ? "⚙️" : "🏆";
   return (
     <div className="glass-card rounded-2xl overflow-hidden">
       <button onClick={() => setOpen(!open)} className="w-full flex items-center gap-3 px-4 py-3.5 active:bg-secondary/30 transition-colors">
-        <span className="text-lg">{catIcon}</span>
         <span className="font-semibold text-[15px] text-foreground flex-1 text-left">{category}</span>
         <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${progress.percent === 100 ? "bg-completion/20 text-completion" : "glass-pill text-muted-foreground"}`}>
           {progress.done}/{progress.total}
