@@ -29,6 +29,15 @@ export function AchievementCard({ achievement, checked, onToggle }: AchievementI
         checked ? "opacity-60" : ""
       }`}
     >
+      {/* Checkbox - left of image */}
+      <div
+        className={`w-[22px] h-[22px] rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
+          checked ? "bg-primary ios-spring" : "border-2 border-muted-foreground/30"
+        }`}
+      >
+        {checked && <Check className="w-3 h-3 text-primary-foreground" strokeWidth={3} />}
+      </div>
+
       {/* Image box */}
       <div className={`w-14 h-14 rounded-xl flex-shrink-0 overflow-hidden flex items-center justify-center ${levelBg[achievement.level] || "bg-muted"}`}>
         <img
@@ -57,15 +66,6 @@ export function AchievementCard({ achievement, checked, onToggle }: AchievementI
           {achievement.level}
         </span>
         <p className="text-[12px] text-muted-foreground mt-0.5 line-clamp-2">{achievement.description}</p>
-      </div>
-
-      {/* Checkbox */}
-      <div
-        className={`w-[22px] h-[22px] rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
-          checked ? "bg-primary ios-spring" : "border-2 border-muted-foreground/30"
-        }`}
-      >
-        {checked && <Check className="w-3 h-3 text-primary-foreground" strokeWidth={3} />}
       </div>
     </button>
   );
