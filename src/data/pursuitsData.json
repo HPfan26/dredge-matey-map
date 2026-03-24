@@ -1,0 +1,308 @@
+[
+  {
+    "id": "a_fresh_start",
+    "name": "A Fresh Start",
+    "type": "Main",
+    "dlc": "Base game",
+    "order": 1,
+    "region": "The Marrows",
+    "notes": ""
+  },
+  {
+    "id": "grotesque_fish",
+    "name": "Grotesque Fish",
+    "type": "Main",
+    "dlc": "Base game",
+    "order": 2,
+    "region": "The Marrows",
+    "notes": ""
+  },
+  {
+    "id": "the_collector",
+    "name": "The Collector",
+    "type": "Main",
+    "dlc": "Base game",
+    "order": 3,
+    "region": "Everywhere",
+    "notes": ""
+  },
+  {
+    "id": "hermitage",
+    "name": "Hermitage",
+    "type": "Main",
+    "dlc": "Base game",
+    "order": 4,
+    "region": "Gale Cliffs",
+    "notes": "Unlocks Packed Explosives"
+  },
+  {
+    "id": "the_bitter_end",
+    "name": "The Bitter End",
+    "type": "Main",
+    "dlc": "Base game",
+    "order": 5,
+    "region": "Twisted Strand",
+    "notes": "Unlocks Mixed Bait"
+  },
+  {
+    "id": "research_assistant",
+    "name": "Research Assistant",
+    "type": "Main",
+    "dlc": "Base game",
+    "order": 6,
+    "region": "Stellar Basin",
+    "notes": "Rewards A Plan For The Future book"
+  },
+  {
+    "id": "flames_of_the_deep",
+    "name": "Flames Of The Deep",
+    "type": "Main",
+    "dlc": "Base game",
+    "order": 7,
+    "region": "Devil's Spine",
+    "notes": ""
+  },
+  {
+    "id": "getting_power",
+    "name": "Getting Power",
+    "type": "Main",
+    "dlc": "The Iron Rig",
+    "order": 1,
+    "region": "Everywhere",
+    "notes": "Unlocks Aberrated Bait"
+  },
+  {
+    "id": "the_iron_rig",
+    "name": "The Iron Rig",
+    "type": "Main",
+    "dlc": "The Iron Rig",
+    "order": 2,
+    "region": "Everywhere",
+    "notes": ""
+  },
+  {
+    "id": "strange_specimens",
+    "name": "Strange Specimens",
+    "type": "Main",
+    "dlc": "The Iron Rig",
+    "order": 3,
+    "region": "Everywhere",
+    "notes": ""
+  },
+  {
+    "id": "contamination",
+    "name": "Contamination",
+    "type": "Main",
+    "dlc": "The Iron Rig",
+    "order": 4,
+    "region": "Everywhere",
+    "notes": "Unlocks Siphon Trawler"
+  },
+  {
+    "id": "defend_the_rig",
+    "name": "Defend The Rig",
+    "type": "Main",
+    "dlc": "The Iron Rig",
+    "order": 5,
+    "region": "Everywhere",
+    "notes": ""
+  },
+  {
+    "id": "the_iron_fleet",
+    "name": "The Iron Fleet",
+    "type": "Main",
+    "dlc": "The Iron Rig",
+    "order": 6,
+    "region": "Everywhere",
+    "notes": ""
+  },
+  {
+    "id": "sabotage",
+    "name": "Sabotage",
+    "type": "Main",
+    "dlc": "The Iron Rig",
+    "order": 7,
+    "region": "Everywhere",
+    "notes": ""
+  },
+  {
+    "id": "drilling_in_the_deep",
+    "name": "Drilling In The Deep",
+    "type": "Main",
+    "dlc": "The Iron Rig",
+    "order": 8,
+    "region": "Everywhere",
+    "notes": ""
+  },
+  {
+    "id": "the_narwhal",
+    "name": "The Narwhal",
+    "type": "Main",
+    "dlc": "The Pale Reach",
+    "order": 1,
+    "region": "The Pale Reach",
+    "notes": ""
+  },
+  {
+    "id": "icebreaker",
+    "name": "Icebreaker",
+    "type": "Main",
+    "dlc": "The Pale Reach",
+    "order": 2,
+    "region": "The Pale Reach",
+    "notes": "Unlocks Icebreaker"
+  },
+  {
+    "id": "ice_shaper",
+    "name": "Ice Shaper",
+    "type": "Main",
+    "dlc": "The Pale Reach",
+    "order": 3,
+    "region": "The Pale Reach",
+    "notes": "Unlocks Ice Blocks at Travelling Merchant"
+  },
+  {
+    "id": "under_the_ice",
+    "name": "Under The Ice",
+    "type": "Main",
+    "dlc": "The Pale Reach",
+    "order": 4,
+    "region": "The Pale Reach",
+    "notes": "Rewards Aurous Anchor and Radiant Trawl Net"
+  },
+  {
+    "id": "caught_to_order",
+    "name": "Caught To Order",
+    "type": "Side",
+    "dlc": "Base game",
+    "order": 1,
+    "region": "The Marrows",
+    "notes": "Rewards 2 Research Parts"
+  },
+  {
+    "id": "package_delivery",
+    "name": "Package Delivery",
+    "type": "Side",
+    "dlc": "Base game",
+    "order": 2,
+    "region": "The Marrows",
+    "notes": ""
+  },
+  {
+    "id": "a_place_to_rest",
+    "name": "A Place To Rest",
+    "type": "Side",
+    "dlc": "Base game",
+    "order": 3,
+    "region": "The Marrows",
+    "notes": "Rewards The Engineer's Companion book"
+  },
+  {
+    "id": "lost_at_sea",
+    "name": "Lost At Sea",
+    "type": "Side",
+    "dlc": "Base game",
+    "order": 4,
+    "region": "The Marrows",
+    "notes": "Rewards 1 Research Part"
+  },
+  {
+    "id": "castaway",
+    "name": "Castaway",
+    "type": "Side",
+    "dlc": "Base game",
+    "order": 5,
+    "region": "The Ocean",
+    "notes": "Rewards The Signet Ring trinket (Sells for $90)"
+  },
+  {
+    "id": "craven_courier",
+    "name": "Craven Courier",
+    "type": "Side",
+    "dlc": "Base game",
+    "order": 6,
+    "region": "Devil's Spine",
+    "notes": "Rewards Getting Over It With Mind And Body book"
+  },
+  {
+    "id": "best_before",
+    "name": "Best Before",
+    "type": "Side",
+    "dlc": "Base game",
+    "order": 7,
+    "region": "Gale Cliffs",
+    "notes": "$150"
+  },
+  {
+    "id": "lost_dog",
+    "name": "Lost Dog",
+    "type": "Side",
+    "dlc": "Base game",
+    "order": 8,
+    "region": "Stellar Basin",
+    "notes": "Rewards Sapphire Ring trinket (Sells for $45)"
+  },
+  {
+    "id": "stone_tablets",
+    "name": "Stone Tablets",
+    "type": "Side",
+    "dlc": "Base game",
+    "order": 9,
+    "region": "Devil's Spine",
+    "notes": "Rewards The Flame Of The Sky light"
+  },
+  {
+    "id": "figure_in_gold",
+    "name": "Figure In Gold",
+    "type": "Side",
+    "dlc": "Base game",
+    "order": 10,
+    "region": "The Ocean",
+    "notes": "Rewards Book Of Advanced Fishing"
+  },
+  {
+    "id": "figure_in_purple",
+    "name": "Figure In Purple",
+    "type": "Side",
+    "dlc": "Base game",
+    "order": 11,
+    "region": "The Ocean",
+    "notes": "Rewards Pushing The Limits: Engines book"
+  },
+  {
+    "id": "figure_in_blue",
+    "name": "Figure In Blue",
+    "type": "Side",
+    "dlc": "Base game",
+    "order": 12,
+    "region": "The Ocean",
+    "notes": "Rewards Haggling And Bartering: A Guide book"
+  },
+  {
+    "id": "figure_in_red",
+    "name": "Figure In Red",
+    "type": "Side",
+    "dlc": "Base game",
+    "order": 13,
+    "region": "The Ocean",
+    "notes": "Rewards Nautical Engineering book"
+  },
+  {
+    "id": "recording_rarities",
+    "name": "Recording Rarities",
+    "type": "Side",
+    "dlc": "Base game",
+    "order": 14,
+    "region": "Everywhere",
+    "notes": "Rewards 2 Research Parts per exotic fish"
+  },
+  {
+    "id": "figure_in_white",
+    "name": "Figure In White",
+    "type": "Side",
+    "dlc": "The Pale Reach",
+    "order": 1,
+    "region": "The Pale Reach",
+    "notes": "Rewards Book Of Astral Symbols"
+  }
+]
