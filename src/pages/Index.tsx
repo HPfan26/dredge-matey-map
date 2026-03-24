@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { TabBar, type TabId } from "@/components/TabBar";
 import { ProgressRing } from "@/components/ProgressRing";
 import { ChecklistSection } from "@/components/ChecklistSection";
@@ -17,12 +18,14 @@ import {
   getAchievementsByCategory,
 } from "@/data/dredgeData";
 import { allPursuits, pursuitCategories, getPursuitsByCategory, pursuitCategoryIcons } from "@/data/pursuitsData";
-import { RotateCcw, Fish, ClipboardList, BookOpen, Trophy } from "lucide-react";
+import MapPage from "@/pages/MapPage";
+import { Settings, Fish, ClipboardList, BookOpen, Trophy } from "lucide-react";
 import { ChevronRight } from "lucide-react";
 
 export default function Index() {
+  const navigate = useNavigate();
   const [tab, setTab] = useState<TabId>("overview");
-  const { toggle, isChecked, getProgress, resetAll } = useChecklist();
+  const { toggle, isChecked, getProgress } = useChecklist();
 
   const fishIds = useMemo(() => allFish.map((f) => f.id), []);
   const pursuitIds = useMemo(() => allPursuits.map((i) => i.id), []);
@@ -42,8 +45,6 @@ export default function Index() {
   const collectibleProgress = getProgress(collectibleIds);
   const achievementProgress = getProgress(achievementIds);
 
-  const [showReset, setShowReset] = useState(false);
-
   const categoryCards = [
     { label: "Fish", progress: fishProgress, tab: "fish" as TabId, icon: <Fish className="w-5 h-5 text-primary" /> },
     { label: "Pursuits", progress: pursuitProgress, tab: "pursuits" as TabId, icon: <ClipboardList className="w-5 h-5 text-primary" /> },
@@ -59,39 +60,15 @@ export default function Index() {
             <h1 className="text-xl font-bold tracking-tight text-foreground">DREDGE</h1>
             <p className="text-[11px] text-muted-foreground font-medium uppercase tracking-wider">Completion Tracker</p>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="glass-pill rounded-full px-3 py-1.5">
-              <span className={`text-sm font-semibold ${overall.percent === 100 ? "text-completion" : "text-primary"}`}>
-                {overall.percent}%
-              </span>
-            </div>
-            <button
-              onClick={() => setShowReset(true)}
-              className="p-2.5 rounded-full glass-pill active:scale-90 ios-spring text-muted-foreground"
-              title="Reset progress"
-            >
-              <RotateCcw className="w-4 h-4" />
-            </button>
-          </div>
+          <button
+            onClick={() => navigate("/settings")}
+            className="p-2.5 rounded-full glass-pill active:scale-90 ios-spring text-muted-foreground"
+            title="Settings"
+          >
+            <Settings className="w-5 h-5" />
+          </button>
         </div>
       </header>
-
-      {showReset && (
-        <div className="fixed inset-0 z-50 bg-background/60 backdrop-blur-xl flex items-center justify-center p-6">
-          <div className="glass-card rounded-3xl p-0 max-w-[280px] w-full overflow-hidden text-center">
-            <div className="px-6 pt-6 pb-4">
-              <h2 className="text-[17px] font-semibold text-foreground">Reset All Progress?</h2>
-              <p className="text-[13px] text-muted-foreground mt-2">This will clear all checked items. This action cannot be undone.</p>
-            </div>
-            <div className="border-t border-border/50">
-              <div className="grid grid-cols-2 divide-x divide-border/50">
-                <button onClick={() => setShowReset(false)} className="py-3.5 text-[17px] font-medium text-primary active:bg-secondary/30 transition-colors">Cancel</button>
-                <button onClick={() => { resetAll(); setShowReset(false); }} className="py-3.5 text-[17px] font-medium text-destructive active:bg-secondary/30 transition-colors">Reset</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       <main className="max-w-lg mx-auto px-4 py-5 space-y-5">
         {tab === "overview" && (
@@ -215,6 +192,8 @@ export default function Index() {
             })}
           </div>
         )}
+
+        {tab === "map" && <MapPage />}
       </main>
 
       <TabBar active={tab} onChange={setTab} />
@@ -222,35 +201,21 @@ export default function Index() {
   );
 }
 
-// Fish region collapsible
 function FishRegionSection({
-  region,
-  icon,
-  fish,
-  isChecked,
-  toggle,
-  progress,
+  region, icon, fish, isChecked, toggle, progress,
 }: {
-  region: string;
-  icon: string;
+  region: string; icon: string;
   fish: import("@/data/dredgeData").FishItem[];
-  isChecked: (id: string) => boolean;
-  toggle: (id: string) => void;
+  isChecked: (id: string) => boolean; toggle: (id: string) => void;
   progress: { done: number; total: number; percent: number };
 }) {
   const [open, setOpen] = useState(false);
-
   return (
     <div className="glass-card rounded-2xl overflow-hidden">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center gap-3 px-4 py-3.5 active:bg-secondary/30 transition-colors"
-      >
+      <button onClick={() => setOpen(!open)} className="w-full flex items-center gap-3 px-4 py-3.5 active:bg-secondary/30 transition-colors">
         <span className="text-lg">{icon}</span>
         <span className="font-semibold text-[15px] text-foreground flex-1 text-left">{region}</span>
-        <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${
-          progress.percent === 100 ? "bg-completion/20 text-completion" : "glass-pill text-muted-foreground"
-        }`}>
+        <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${progress.percent === 100 ? "bg-completion/20 text-completion" : "glass-pill text-muted-foreground"}`}>
           {progress.done}/{progress.total}
         </span>
         <ChevronRight className={`w-4 h-4 text-muted-foreground transition-transform duration-300 ${open ? "rotate-90" : ""}`} />
@@ -266,40 +231,28 @@ function FishRegionSection({
   );
 }
 
-// Achievement category collapsible
 function AchievementSection({
-  category,
-  achievements,
-  isChecked,
-  toggle,
-  progress,
+  category, achievements, isChecked, toggle, progress,
 }: {
   category: string;
   achievements: import("@/data/dredgeData").AchievementItem[];
-  isChecked: (id: string) => boolean;
-  toggle: (id: string) => void;
+  isChecked: (id: string) => boolean; toggle: (id: string) => void;
   progress: { done: number; total: number; percent: number };
 }) {
   const [open, setOpen] = useState(false);
   const catIcon = category === "The Pale Reach" ? "❄️" : category === "The Iron Rig" ? "⚙️" : "🏆";
-
   return (
     <div className="glass-card rounded-2xl overflow-hidden">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center gap-3 px-4 py-3.5 active:bg-secondary/30 transition-colors"
-      >
+      <button onClick={() => setOpen(!open)} className="w-full flex items-center gap-3 px-4 py-3.5 active:bg-secondary/30 transition-colors">
         <span className="text-lg">{catIcon}</span>
         <span className="font-semibold text-[15px] text-foreground flex-1 text-left">{category}</span>
-        <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${
-          progress.percent === 100 ? "bg-completion/20 text-completion" : "glass-pill text-muted-foreground"
-        }`}>
+        <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${progress.percent === 100 ? "bg-completion/20 text-completion" : "glass-pill text-muted-foreground"}`}>
           {progress.done}/{progress.total}
         </span>
         <ChevronRight className={`w-4 h-4 text-muted-foreground transition-transform duration-300 ${open ? "rotate-90" : ""}`} />
       </button>
       {open && (
-        <div className="border-t border-border/50 divide-y divide-border/30">
+        <div className="border-t border-border/50 p-2 space-y-1">
           {achievements.map((a) => (
             <AchievementCard key={a.id} achievement={a} checked={isChecked(a.id)} onToggle={() => toggle(a.id)} />
           ))}
