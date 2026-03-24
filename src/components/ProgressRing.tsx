@@ -21,7 +21,7 @@ export function ProgressRing({ percent, size = 80, strokeWidth = 5, label }: Pro
             cy={size / 2}
             r={radius}
             fill="none"
-            stroke="hsl(220 15% 20% / 0.5)"
+            stroke="hsl(0 0% 80% / 0.4)"
             strokeWidth={strokeWidth}
           />
           <circle
@@ -37,8 +37,8 @@ export function ProgressRing({ percent, size = 80, strokeWidth = 5, label }: Pro
             className="transition-all duration-700 ease-out"
             style={{
               filter: isComplete
-                ? "drop-shadow(0 0 6px hsl(var(--completion) / 0.5))"
-                : "drop-shadow(0 0 4px hsl(var(--primary) / 0.3))",
+                ? "drop-shadow(0 0 4px hsl(var(--completion) / 0.4))"
+                : "drop-shadow(0 0 3px hsl(var(--primary) / 0.2))",
             }}
           />
         </svg>

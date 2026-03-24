@@ -1,30 +1,38 @@
-export interface ChecklistItem {
+export interface PursuitItem {
   id: string;
   name: string;
-  category?: string;
-  region?: string;
-  description?: string;
+  type: string;
+  dlc: string;
+  order: number;
+  region: string;
+  notes: string;
 }
 
-export const pursuitsData = {
-  id: "pursuits",
-  name: "Pursuits",
-  icon: "📋",
-  items: [
-    { id: "p1", name: "Best Catch", description: "Catch a trophy fish" },
-    { id: "p2", name: "Research Assistant", description: "Complete research for the Collector" },
-    { id: "p3", name: "Hermit's Request", description: "Help the hermit" },
-    { id: "p4", name: "Lost at Sea", description: "Find lost items" },
-    { id: "p5", name: "Book of Astral Symbols", description: "Collect all symbols" },
-    { id: "p6", name: "The Pale Reach", description: "Explore the frozen expanse" },
-    { id: "p7", name: "What Lies Below", description: "Discover the deep secrets" },
-    { id: "p8", name: "A Fish Called Steroids", description: "Catch an aberration" },
-    { id: "p9", name: "The Iron Rig", description: "Visit the Iron Rig" },
-    { id: "p10", name: "Mushroom Research", description: "Collect mushroom samples" },
-    { id: "p11", name: "Doomed Expedition", description: "Follow the expedition trail" },
-    { id: "p12", name: "Photography", description: "Photograph unique species" },
-    { id: "p13", name: "Grotesque Fish", description: "Catch all aberrations" },
-    { id: "p14", name: "Explorer", description: "Discover all locations" },
-    { id: "p15", name: "Rock Slab Collector", description: "Find all rock slabs" },
-  ] as ChecklistItem[],
+import pursuitsRaw from "./pursuitsData.json";
+
+export const allPursuits: PursuitItem[] = pursuitsRaw as PursuitItem[];
+
+export const pursuitCategories = ["Main", "Side", "The Pale Reach", "The Iron Rig"] as const;
+
+export function getPursuitsByCategory(category: string): PursuitItem[] {
+  if (category === "Main") {
+    return allPursuits.filter((p) => p.type === "Main" && p.dlc === "Base game").sort((a, b) => a.order - b.order);
+  }
+  if (category === "Side") {
+    return allPursuits.filter((p) => p.type === "Side" && p.dlc === "Base game").sort((a, b) => a.order - b.order);
+  }
+  if (category === "The Pale Reach") {
+    return allPursuits.filter((p) => p.dlc === "The Pale Reach").sort((a, b) => a.order - b.order);
+  }
+  if (category === "The Iron Rig") {
+    return allPursuits.filter((p) => p.dlc === "The Iron Rig").sort((a, b) => a.order - b.order);
+  }
+  return [];
+}
+
+export const pursuitCategoryIcons: Record<string, string> = {
+  "Main": "⚓",
+  "Side": "📋",
+  "The Pale Reach": "❄️",
+  "The Iron Rig": "⚙️",
 };

@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { ChevronRight, Check } from "lucide-react";
-import type { ChecklistItem } from "@/data/pursuitsData";
+
+interface ChecklistItem {
+  id: string;
+  name: string;
+  description?: string;
+  category?: string;
+  region?: string;
+}
 
 interface ChecklistSectionProps {
   title: string;
@@ -40,38 +47,29 @@ export function ChecklistSection({ title, icon, items, isChecked, toggle, progre
               <button
                 key={item.id}
                 onClick={() => toggle(item.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 transition-all active:bg-secondary/20 text-left ${
-                  idx < items.length - 1 ? "border-b border-border/30 ml-11" : ""
-                } ${idx < items.length - 1 ? "pr-4" : ""}`}
-                style={idx < items.length - 1 ? { paddingLeft: 0, marginLeft: "2.75rem" } : {}}
+                className={`w-full flex items-center gap-2.5 px-3 py-2.5 transition-all active:bg-secondary/20 text-left ${
+                  idx < items.length - 1 ? "border-b border-border/30" : ""
+                }`}
               >
-                {/* iOS-style list with inset separators */}
-                {idx < items.length - 1 ? null : null}
-                <div className={`flex items-center gap-3 w-full ${idx < items.length - 1 ? "" : "pl-7"}`}>
-                  <div
-                    className={`w-[22px] h-[22px] rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
-                      checked
-                        ? "bg-primary ios-spring scale-100"
-                        : "border-2 border-muted-foreground/30"
-                    }`}
-                  >
-                    {checked && <Check className="w-3 h-3 text-primary-foreground" strokeWidth={3} />}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <span
-                      className={`text-[15px] transition-colors duration-200 ${
-                        checked ? "text-muted-foreground line-through" : "text-foreground"
-                      }`}
-                    >
-                      {item.name}
-                    </span>
-                  </div>
+                <div
+                  className={`w-[22px] h-[22px] rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
+                    checked
+                      ? "bg-primary ios-spring scale-100"
+                      : "border-2 border-muted-foreground/30"
+                  }`}
+                >
+                  {checked && <Check className="w-3 h-3 text-primary-foreground" strokeWidth={3} />}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className={`text-[15px] leading-tight transition-colors duration-200 ${
+                    checked ? "text-muted-foreground line-through" : "text-foreground"
+                  }`}>
+                    {item.name}
+                  </p>
                   {item.description && (
-                    <span className={`text-xs flex-shrink-0 ${
-                      item.category === "aberration" ? "text-destructive" : "text-muted-foreground"
-                    }`}>
+                    <p className="text-[12px] text-muted-foreground mt-0.5 leading-tight">
                       {item.description}
-                    </span>
+                    </p>
                   )}
                 </div>
               </button>
