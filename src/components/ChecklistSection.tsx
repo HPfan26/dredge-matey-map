@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronRight, Check } from "lucide-react";
-import type { ChecklistItem } from "@/data/dredgeData";
+import type { ChecklistItem } from "@/data/pursuitsData";
 
 interface ChecklistSectionProps {
   title: string;
