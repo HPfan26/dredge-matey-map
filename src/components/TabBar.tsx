@@ -1,6 +1,6 @@
-import { Fish, ClipboardList, BookOpen, Trophy, LayoutDashboard, Map } from "lucide-react";
+import { Fish, ClipboardList, BookOpen, Trophy, LayoutDashboard } from "lucide-react";
 
-export type TabId = "overview" | "fish" | "pursuits" | "collectibles" | "achievements" | "map";
+export type TabId = "overview" | "fish" | "pursuits" | "collectibles" | "achievements";
 
 interface TabBarProps {
   active: TabId;
@@ -11,9 +11,8 @@ const tabs: { id: TabId; label: string; icon: React.ReactNode }[] = [
   { id: "overview", label: "Overview", icon: <LayoutDashboard className="w-[22px] h-[22px]" /> },
   { id: "fish", label: "Fish", icon: <Fish className="w-[22px] h-[22px]" /> },
   { id: "pursuits", label: "Pursuits", icon: <ClipboardList className="w-[22px] h-[22px]" /> },
-  { id: "collectibles", label: "Items", icon: <BookOpen className="w-[22px] h-[22px]" /> },
+  { id: "collectibles", label: "Collectibles", icon: <BookOpen className="w-[22px] h-[22px]" /> },
   { id: "achievements", label: "Trophies", icon: <Trophy className="w-[22px] h-[22px]" /> },
-  { id: "map", label: "Map", icon: <Map className="w-[22px] h-[22px]" /> },
 ];
 
 export function TabBar({ active, onChange }: TabBarProps) {
