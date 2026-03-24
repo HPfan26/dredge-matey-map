@@ -1,6 +1,6 @@
-import { Fish, ClipboardList, BookOpen, Trophy, LayoutDashboard } from "lucide-react";
+import { Fish, ClipboardList, BookOpen, Trophy, LayoutDashboard, Map } from "lucide-react";
 
-export type TabId = "overview" | "fish" | "pursuits" | "collectibles" | "achievements";
+export type TabId = "overview" | "fish" | "pursuits" | "collectibles" | "achievements" | "map";
 
 interface TabBarProps {
   active: TabId;
@@ -13,13 +13,14 @@ const tabs: { id: TabId; label: string; icon: React.ReactNode }[] = [
   { id: "pursuits", label: "Pursuits", icon: <ClipboardList className="w-[22px] h-[22px]" /> },
   { id: "collectibles", label: "Items", icon: <BookOpen className="w-[22px] h-[22px]" /> },
   { id: "achievements", label: "Trophies", icon: <Trophy className="w-[22px] h-[22px]" /> },
+  { id: "map", label: "Map", icon: <Map className="w-[22px] h-[22px]" /> },
 ];
 
 export function TabBar({ active, onChange }: TabBarProps) {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-center" style={{ paddingBottom: "max(env(safe-area-inset-bottom, 12px), 12px)" }}>
       <nav
-        className="flex items-center gap-1 px-3 py-2 rounded-full"
+        className="flex items-center gap-0.5 px-2.5 py-2 rounded-full"
         style={{
           background: "linear-gradient(135deg, hsla(0, 0%, 96%, 0.7), hsla(0, 0%, 92%, 0.6))",
           backdropFilter: "blur(50px) saturate(2.2) brightness(1.05)",
@@ -34,7 +35,7 @@ export function TabBar({ active, onChange }: TabBarProps) {
             <button
               key={tab.id}
               onClick={() => onChange(tab.id)}
-              className="relative flex flex-col items-center gap-0.5 px-4 py-1.5 rounded-full ios-spring active:scale-90 transition-all duration-200"
+              className="relative flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-full ios-spring active:scale-90 transition-all duration-200"
               style={isActive ? {
                 background: "hsla(212, 30%, 59%, 0.15)",
                 boxShadow: "inset 0 0.5px 0 0 hsla(0, 0%, 100%, 0.3)",
