@@ -11,7 +11,7 @@ interface ChecklistItem {
 
 interface ChecklistSectionProps {
   title: string;
-  icon: string;
+  icon?: string;
   items: ChecklistItem[];
   isChecked: (id: string) => boolean;
   toggle: (id: string) => void;
