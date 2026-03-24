@@ -47,7 +47,7 @@ export function FishCard({ fish, checked, onToggle }: FishCardProps) {
           {fish.name}
         </span>
 
-        <div className="grid grid-cols-2 gap-x-3 gap-y-0.5">
+        <div className="grid grid-cols-[1fr_auto] gap-x-4 gap-y-0.5">
           <div className="flex items-center gap-1.5">
             <MapPin className="w-3 h-3 text-muted-foreground flex-shrink-0" />
             <span className="text-[11px] text-muted-foreground truncate">{fish.location_type}</span>
@@ -59,7 +59,7 @@ export function FishCard({ fish, checked, onToggle }: FishCardProps) {
           {fish.price != null && (
             <div className="flex items-center gap-1.5">
               <DollarSign className="w-3 h-3 text-muted-foreground flex-shrink-0" />
-              <span className="text-[11px] text-muted-foreground">${fish.price}</span>
+              <span className="text-[11px] text-muted-foreground">{fish.price}</span>
             </div>
           )}
           {fish.dlc && (
